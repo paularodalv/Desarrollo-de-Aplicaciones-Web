@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE ASIR [
+    <!ELEMENT ASIR (nombre, horas_semanales, caracter, fechaInicio, fechaFin, alumnos)>
+        <!ELEMENT nombre (#PCDATA)>
+        <!ELEMENT horas_semanales (#PCDATA)>
+        <!ELEMENT caracter (#PCDATA)>
+        <!ELEMENT fechaInicio (#PCDATA)>
+        <!ELEMENT fechaFin (#PCDATA)>
+        <!ELEMENT alumnos (alumno+)>
+            <!ELEMENT alumno (nombreAlumno, nif, direccion, telefono, email, faltas?, nota)>
+                <!ELEMENT nombreAlumno (#PCDATA)>
+                <!ELEMENT nif (#PCDATA)>
+                <!ELEMENT direccion (calle, ciudad, cp)>
+                    <!ELEMENT calle (#PCDATA)>
+                    <!ELEMENT ciudad (#PCDATA)>
+                    <!ELEMENT cp (#PCDATA)>
+                <!ELEMENT telefono (#PCDATA)>
+                <!ELEMENT email (#PCDATA)>
+                <!ELEMENT faltas (#PCDATA)>
+                <!ELEMENT nota (#PCDATA)>
+]>
+<ASIR>
+    <nombre>Lenguaje de Marcas</nombre>
+    <horas_semanales>4</horas_semanales>
+    <caracter>Obligatorio</caracter>
+    <fechaInicio>15 de Septiembre de 2010</fechaInicio>
+    <fechaFin>30 de Junio de 2011</fechaFin>
+    <alumnos>
+       <alumno>
+        <nombreAlumno>Ana Fernández Gutiérrez</nombreAlumno>
+        <nif>16965696L</nif>
+        <direccion>
+            <calle>El Percebe, 13</calle>
+            <ciudad>Santander</ciudad>
+            <cp>39302</cp>
+        </direccion>
+        <telefono>789654321</telefono>
+        <email>ana.fdezgtrrez@hotmail.com</email>
+        <faltas/>
+        <nota/>
+       </alumno> 
+       <alumno>
+        <nombreAlumno>Pepito Grillo</nombreAlumno>
+        <nif>98765432H</nif>
+        <direccion>
+            <calle>El Pez, 5</calle>
+            <ciudad>Suances</ciudad>
+            <cp>39401</cp>
+        </direccion>
+        <telefono>656566555</telefono>
+        <email>yhyh@yahoo.com</email>
+        <faltas/>
+        <nota>Apto</nota>
+       </alumno> 
+    </alumnos>
+</ASIR>

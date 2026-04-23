@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE factura [
+    <!-- Factura -->
+    <!ELEMENT factura (fecha, cliente, productos, pago)>
+        <!ELEMENT fecha (#PCDATA)>
+
+    <!-- Cliente -->
+    <!ELEMENT cliente (nif, nombre, direccion, telefono+)>
+        <!ELEMENT nif (#PCDATA)>
+        <!ELEMENT nombre (#PCDATA)>
+        <!ELEMENT direccion (#PCDATA)>
+            <!ATTLIST direccion CP CDATA #REQUIRED> 
+        <!ELEMENT telefono (#PCDATA)>
+            <!ATTLIST telefono localizacion CDATA #IMPLIED>
+
+    <!-- Productos -->
+    <!ELEMENT productos (producto+)>
+        <!ELEMENT producto (descripcion, precio)>
+            <!ATTLIST producto codigo NMTOKEN #REQUIRED>
+            <!ELEMENT descripcion (#PCDATA)>
+                <!ATTLIST descripcion cantidad ID #IMPLIED>
+            <!ELEMENT precio (#PCDATA)>
+                <!ATTLIST precio moneda (euro|dolar|libra) #REQUIRED>
+
+    <!-- Banco -->
+    <!ELEMENT pago (banco?, efectivo?, girado?)>
+        <!ELEMENT banco (#PCDATA)>
+        <!ELEMENT efectivo (tarjeta?)>
+            <!ELEMENT tarjeta (#PCDATA)>
+        <!ELEMENT girado (giros*)>
+            <!ELEMENT giros (#PCDATA)>
+                <!ATTLIST girado fecha CDATA #REQUIRED>
+]>
+<factura>
+    <fecha>12/08/2025</fecha>
+    <cliente>
+        <nif>71322990J</nif>
+        <nombre>Paula Rodriguez Alvarez</nombre>
+        <direccion CP="47011">Calle Salud 31</direccion>
+        <telefono>636739270</telefono>
+        <telefono>789475169</telefono>
+    </cliente>
+    <productos>
+        <producto codigo="1">
+            <descripcion>Limpia lavavajillas</descripcion>
+            <precio moneda="euro">25€</precio>
+        </producto>
+        <producto codigo="2">
+            <descripcion>Libros</descripcion>
+            <precio moneda="dolar">14.50</precio>
+        </producto>
+    </productos>
+    <pago>
+        <banco>Cajamar</banco>
+        <!-- Y en caso de ser los demás se podrían poner de tal forma que
+            EN CASO DE EFECTIVO:
+                <efectivo>
+                    <tarjeta>123456789987</tarjeta>
+                </efectivo>
+            EN CASO DE GIRADO:
+                 <girado fecha="12082025">
+                    <giros>1</giros>
+                 </girado>
+        -->
+    </pago>
+</factura>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE proveedores [
+    <!-- Proveedores -->
+    <!ELEMENT proveedores (proveedor+)>
+        <!ELEMENT proveedor (nombre, direccion, telefono, web?, producto+)>
+        <!ATTLIST proveedor codigo CDATA #REQUIRED>
+
+    <!-- Proveedor -->
+    <!ELEMENT nombre (#PCDATA)>
+    <!ELEMENT direccion (#PCDATA)>
+    <!ATTLIST direccion 
+                        tipo (calle|avenida|plaza) #REQUIRED
+                        numero NMTOKEN #REQUIRED>
+    <!ELEMENT telefono (#PCDATA)> <!-- Al tener que ir con guiones y un formato específico el cuál no podemos hacer solo con DTD, he elegido el #PCDATA ya que es lo más parecido-->
+    <!ELEMENT web (#PCDATA)> <!-- Como en el anterior, al solo tener que hacer el DTD no se puede poner un solo formato, por lo que elegí el PCDATA como mejor opción para el elemento -->
+
+    <!-- Producto -->
+    <!ELEMENT producto (descripcion, grupo?, medida)>
+        <!ELEMENT descripcion (#PCDATA)>
+        <!ELEMENT grupo EMPTY>
+        <!ELEMENT medida (#PCDATA)> <!-- Al no poder poner el formato de los decimales elegí el #PCDATA que es lo más parecido a lo que podemos poner -->
+            <!ATTLIST medida unidad (metros|pulgadas) #IMPLIED>
+]>
+<proveedores>    
+    <proveedor codigo="ID7077">
+       <nombre>Juan Distribuccione</nombre>
+       <direccion tipo="calle" numero="2">Percebe</direccion>
+       <telefono>983-343-345</telefono>
+       <web>www.laguna.valladolid.es</web>
+       <producto>
+           <descripcion>Tornillos</descripcion>
+           <grupo/>
+           <medida>12.23</medida>
+       </producto>
+       <producto>
+           <descripcion>Tuercas</descripcion>
+           <medida unidad="pulgadas">12</medida>
+       </producto>
+   </proveedor>
+   
+    <proveedor codigo="ID0179">
+        <nombre>Pepe Gotera S.L.</nombre>
+        <direccion tipo="avenida" numero="1">Cerantes</direccion>
+        <telefono>766-123-181</telefono>
+        <producto>
+            <descripcion>Libros</descripcion>
+            <medida>13</medida>
+        </producto>
+    </proveedor>
+</proveedores>

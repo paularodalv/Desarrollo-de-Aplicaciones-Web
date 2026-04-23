@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE agenda [
+    <!ELEMENT agenda (persona)+>
+    <!ELEMENT persona (nombre, apellidos, direccion, telefonos)>
+    <!ELEMENT nombre (#PCDATA)>
+    <!ELEMENT apellidos (#PCDATA)>
+    <!ELEMENT direccion (#PCDATA)>
+    <!ELEMENT telefonos (#PCDATA)>
+    <!ATTLIST telefonos tipo (casa | movil | telefonoTrabajo) "movil">
+]>
+<agenda>
+    <persona>
+        <nombre>Paula</nombre>
+        <apellidos>Rodriguez Alvarez</apellidos>
+        <direccion>Valladolid</direccion>
+        <telefonos>movil</telefonos>
+    </persona>
+</agenda>
